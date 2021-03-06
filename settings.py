@@ -9,10 +9,15 @@ class Settings():
         self.bg_color = (30, 30, 30)
 
         self.ship_limit = 2
-        self.bullet_width = 2
-        self.bullet_height = 30
-        self.bullet_color = 255, 0, 0
-        self.bullets_every = 1
+        self.alien_bullet_width = 2
+        self.alien_bullet_height = 30
+        self.alien_bullet_color = 0, 255, 0
+        self.alien_bullets_every = 0.8
+
+        self.ship_bullet_height = 50
+        self.ship_bullet_width = 5
+        self.ship_bullet_color = 255, 0, 0
+        self.ship_bullets_every = 1
 
         self.fleet_drop_speed = 10
         self.debounce = 0.0001

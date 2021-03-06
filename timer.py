@@ -39,33 +39,33 @@ class Timer:
         return self.frames[self.frame_index()]
 
 
-class TimerDual:
-    def __init__(self, frames1, frames2, wait1=100, wait2=100, wait_switch_timers=1000,
-                 frameindex1=0, frameindex2=0, step1=1, step2=1, looponce=False):
-
-        self.wait_switch_timers = wait_switch_timers
-        self.timer1 = Timer(frames1, wait1, frameindex1, step1, looponce)
-        self.timer2 = Timer(frames2, wait2, frameindex2, step2, looponce)
-        self.timer = self.timer1   # start with timer1
-
-        self.now = pygame.time.get_ticks()
-        self.lastswitch = self.now
-
-    def frame_index(self):
-        now = pygame.time.get_ticks()
-        if now - self.lastswitch > self.wait_switch_timers:
-            self.timer = self.timer2 if self.timer == self.timer1 else self.timer1
-            self.lastswitch = now
-        return self.timer.frame_index()
-
-    def reset(self):
-        self.timer1.reset()
-        self.timer2.reset()
-        self.timer = self.timer1
-
-    def __str__(self): return 'TimerDual(' + str(self.timer1) + ',' + str(self.timer2) + ')'
-
-    def imagerect(self):
-        idx = self.frame_index()
-#        print('idx: ' + str(idx))
-        return self.timer.frames[idx]
+# class TimerDual:
+#     def __init__(self, frames1, frames2, wait1=100, wait2=100, wait_switch_timers=1000,
+#                  frameindex1=0, frameindex2=0, step1=1, step2=1, looponce=False):
+#
+#         self.wait_switch_timers = wait_switch_timers
+#         self.timer1 = Timer(frames1, wait1, frameindex1, step1, looponce)
+#         self.timer2 = Timer(frames2, wait2, frameindex2, step2, looponce)
+#         self.timer = self.timer1   # start with timer1
+#
+#         self.now = pygame.time.get_ticks()
+#         self.lastswitch = self.now
+#
+#     def frame_index(self):
+#         now = pygame.time.get_ticks()
+#         if now - self.lastswitch > self.wait_switch_timers:
+#             self.timer = self.timer2 if self.timer == self.timer1 else self.timer1
+#             self.lastswitch = now
+#         return self.timer.frame_index()
+#
+#     def reset(self):
+#         self.timer1.reset()
+#         self.timer2.reset()
+#         self.timer = self.timer1
+#
+#     def __str__(self): return 'TimerDual(' + str(self.timer1) + ',' + str(self.timer2) + ')'
+#
+#     def imagerect(self):
+#         idx = self.frame_index()
+# #        print('idx: ' + str(idx))
+#         return self.timer.frames[idx]
