@@ -6,8 +6,8 @@ from bullet import BulletFromShip
 
 
 class Ship(Sprite):
-    images = [pg.image.load('images/ship.bmp')]
-    images_boom = [pg.image.load('images/ship_boom' + str(i) + '.png') for i in range(4)]
+    images = [pg.image.load('images/ship.png')]
+    images_boom = [pg.image.load('images/ship_boom' + str(i) + '.png') for i in range(9)]
     timer = Timer(frames=images, wait=1000)
     timer_boom = Timer(frames=images_boom, wait=100, looponce=True)
 
@@ -21,7 +21,7 @@ class Ship(Sprite):
         self.barriers = barriers
         self.aliens = aliens
 
-        self.image = pg.image.load('images/ship.bmp')
+        self.image = pg.image.load('images/ship.png')
         self.rect = self.image.get_rect()
         self.screen_rect = game.screen.get_rect()
 

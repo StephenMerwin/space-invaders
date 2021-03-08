@@ -123,7 +123,9 @@ class Aliens:
 
 class Alien(Sprite):   # INHERITS from SPRITE
     images = [[pg.image.load('images/alien' + str(number) + str(i) + '.png') for i in range(2)] for number in range(3)]
-    images_boom = [pg.image.load('images/alien_boom' + str(i) + '.png') for i in range(4)]
+    images_boom0 = [pg.image.load('images/alien' + str(0) + 'b' + str(i) + '.png') for i in range(3)]
+    images_boom = [pg.image.load('images/alien' + str(1) + 'b' + str(i) + '.png') for i in range(3)]
+    images_boom2 = [pg.image.load('images/alien' + str(2) + 'b' + str(i) + '.png') for i in range(3)]
 
     timers = []
     for i in range(3):
